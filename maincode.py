@@ -13,8 +13,8 @@ def calculate_eq(factors):
         'Emotional Expression': 0.05
     }
 
-    total_score = sum(factors.get(key, 0) * weights[key] for key in weights)
-    max_score = 10 * sum(weights.values())
+    total_score = float(sum(factors.get(key, 0) * weights[key] for key in weights))
+    max_score = float(10 * sum(weights.values()))
 
     eq_percentage = (total_score / max_score) * 100
     return eq_percentage
@@ -67,7 +67,7 @@ def advanced_level():
         'Empathy': 0.15,
         'Self-Regulation': 0.15,
         'Social Skills': 0.15,
-        'Motivation': 0.1,
+        'Mot ivation': 0.1,
         'Stress Management': 0.05,
         'Emotional Resilience': 0.1,
         'Adaptability': 0.1,
