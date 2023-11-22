@@ -59,7 +59,6 @@ def advanced_level():
         "You've achieved a major goal. How do you express and celebrate your success?": 'Emotional Expression',
         "A difficult situation arises unexpectedly. How do you maintain emotional resilience?": 'Emotional Resilience',
         "You're dealing with criticism from someone close. How do you respond and handle your emotions?": 'Self-Regulation'
-        # Add more scenarios here if needed
     }
 
     factors = {}
