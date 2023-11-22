@@ -13,9 +13,8 @@ class EmotionalQuotientCalculator:
     def initialize_gui(self):
         font = ('Arial', 12)
 
-        # Use ThemedStyle for a more modern look
         style = ThemedStyle(self.root)
-        style.set_theme("radiance")  
+        style.set_theme("equilux")  
 
         center_frame = ttk.Frame(self.root)
         center_frame.pack(expand=True)
@@ -55,13 +54,13 @@ class EmotionalQuotientCalculator:
 
         for item in items:
             frame = ttk.Frame(window)
-            frame.pack(side=tk.TOP, pady=10)
+            frame.pack(side=tk.TOP, pady=10, fill=tk.X)
 
-            ttk.Label(frame, text=f"{item}: ", font=font).pack(side=tk.LEFT)
+            ttk.Label(frame, text=f"{item}:", font=font, anchor='w').pack(side=tk.LEFT, padx=10)
 
             factors[item] = tk.StringVar(value='0') 
-            rating_dropdown = ttk.Combobox(frame, values=[str(i) for i in range(1, 11)], textvariable=factors[item], state='readonly', font=font)
-            rating_dropdown.pack(side=tk.LEFT)
+            rating_combobox = ttk.Combobox(frame, values=[str(i) for i in range(1, 11)], textvariable=factors[item], state='readonly', font=font, width=5)
+            rating_combobox.pack(side=tk.RIGHT, padx=10)
 
         return factors
 
@@ -109,13 +108,13 @@ class EmotionalQuotientCalculator:
 
         for scenario in chosen_scenarios:
             frame = ttk.Frame(advanced_window)
-            frame.pack(side=tk.TOP, pady=10)
+            frame.pack(side=tk.TOP, pady=10, fill=tk.X)
 
-            ttk.Label(frame, text=f"{scenario}: ", font=font).pack(side=tk.LEFT)
+            ttk.Label(frame, text=f"{scenario}:", font=font, anchor='w').pack(side=tk.LEFT, padx=10)
 
             factors[scenarios_weights[scenario]] = tk.StringVar(value='0') 
-            rating_dropdown = ttk.Combobox(frame, values=[str(i) for i in range(1, 11)], textvariable=factors[scenarios_weights[scenario]], state='readonly', font=font)
-            rating_dropdown.pack(side=tk.LEFT)
+            rating_combobox = ttk.Combobox(frame, values=[str(i) for i in range(1, 11)], textvariable=factors[scenarios_weights[scenario]], state='readonly', font=font, width=5)
+            rating_combobox.pack(side=tk.RIGHT, padx=10)
 
         ttk.Button(advanced_window, text="Calculate EQ", command=lambda: self.show_result(advanced_window, factors), style='Large.TButton').pack(pady=20)
         ttk.Button(advanced_window, text="Next", command=advanced_window.destroy, style='Large.TButton').pack()
@@ -129,9 +128,8 @@ def main():
     root = tk.Tk()
     app = EmotionalQuotientCalculator(root)
 
-    # Use ThemedStyle for the root window
     style = ThemedStyle(root)
-    style.set_theme("radiance")
+    style.set_theme("equilux")
 
     ttk.Style().configure('Large.TButton', font=('Arial', 12))
 
