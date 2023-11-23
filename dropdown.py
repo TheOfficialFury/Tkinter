@@ -3,6 +3,8 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 from ttkthemes import ThemedStyle
 
+size = ["300", "350"]
+
 class EmotionalQuotientCalculator:
     def __init__(self, root):
         self.root = root
@@ -14,7 +16,7 @@ class EmotionalQuotientCalculator:
         font = ('Arial', 12)
 
         style = ThemedStyle(self.root)
-        style.set_theme("equilux")  
+        style.set_theme("arc")  
 
         center_frame = ttk.Frame(self.root)
         center_frame.pack(expand=True)
@@ -22,10 +24,10 @@ class EmotionalQuotientCalculator:
         ttk.Label(center_frame, text="Select the level:", font=font).pack()
 
         basic_button = ttk.Button(center_frame, text="Basic Level", command=self.start_basic_level, style='Large.TButton')
-        basic_button.pack(side=tk.LEFT, padx=20)
+        basic_button.pack(pady=75, padx=75)
 
         advanced_button = ttk.Button(center_frame, text="Advanced Level", command=self.start_advanced_level, style='Large.TButton')
-        advanced_button.pack(side=tk.LEFT)
+        advanced_button.pack(pady=50)
 
         ttk.Style().configure('Large.TButton', font=font)
 
@@ -126,10 +128,11 @@ class EmotionalQuotientCalculator:
 
 def main():
     root = tk.Tk()
+    root.geometry(size[0] + "x" + size[1])
     app = EmotionalQuotientCalculator(root)
 
     style = ThemedStyle(root)
-    style.set_theme("equilux")
+    style.set_theme("arc")
 
     ttk.Style().configure('Large.TButton', font=('Arial', 12))
 
